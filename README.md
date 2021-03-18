@@ -1,7 +1,7 @@
 # MUII-SSBW
 Asignatura de Sistemas Software Basados en Web (SSBW) - Máster Profesional en Ingeniería Informática 2020/2021
 
-## Descripción
+# Descripción
 Desarrollo de una aplicación web inspirada en [Turgranada](https://www.turgranada.es/cosas-que-hacer/turismo-activo-y-de-naturaleza/excursiones-y-senderismo/), en la que se puedan consultar senderos y rutas por Granada, añadir fotos, mapas y comentarios por parte de los visitantes.
 
 <details open="open">
