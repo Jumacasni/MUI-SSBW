@@ -77,4 +77,4 @@ Utilizando bootstrap, se ha añadido un formulario básico de búsqueda:
 
 Por último, para cada excursión se ha usado bootstrap para crear una tarjeta [(cards)](https://getbootstrap.com/docs/5.0/components/card/) por cada una:
 
-<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/buscar2.png" width="60%" height="">
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/buscar2.png" width="100%" height="">
