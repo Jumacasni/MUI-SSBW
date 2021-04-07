@@ -2,17 +2,6 @@
 
 {% block contenido %}
 
-<div class="mb-3">
-    <form method="post" action="{% url 'buscar' %}">{% csrf_token %}
-        <label for="exampleFormControlInput1" class="form-label">Buscar excursión</label>
-        <input name="busqueda" type="text" class="form-control" id="exampleFormControlInput" placeholder="...">
-    </form>
-</div>
-
-{% if buscado %}
-
-Se ha buscado {{ buscado }}
-
 <div class="d-flex flex-wrap mt-5 justify-content-between">
 {% for e in excursiones %}
     <div class="card me-2 mb-5" style="width: 18rem;">
@@ -26,5 +15,4 @@ Se ha buscado {{ buscado }}
 {% endfor %}
 </div>
 
-{% endif %}
 {% endblock %}

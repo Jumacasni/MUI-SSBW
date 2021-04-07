@@ -20,6 +20,9 @@ Desarrollo de una aplicación web inspirada en [Turgranada](https://www.turgrana
     <li>
       <a href="#tarea2">Tarea 2: Empezando con Django</a>
     </li>
+    <li>
+      <a href="#tarea3">Tarea 3: Frameworks CSS</a>
+    </li>
   </ol>
       
 <a name="tarea0"></a>
@@ -58,3 +61,20 @@ Una pequeña aplicación de consulta de la BD, siguiendo el tutorial de [Django 
 * Y se modifica el archivo [index.html](senderos/templates/senderos/index.html) para que muestre la salida a través de [http://localhost:8000](http://localhost:8000):
 
 <img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/index.png" width="60%" height="">
+
+<a name="tarea3"></a>
+## Tarea 3: Frameworks CSS
+
+Se va a usar un **Framework CSS** para facilitar la tarea, consiguiendo también un diseño *responsive* que se adapte automáticamente al tamaño de la pantalla. Se va a usar [Bootstrap](https://getbootstrap.com/).
+
+Se ha creado el archivo [base.html](senderos/templates/senderos/base.html) que contiene el código mínimo copiado desde [Starter template](https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template).
+
+Se ha modificado el archivo [index.html](senderos/templates/senderos/index.html) incluyendo el *starter template* e incluyendo una **búsqueda básica de excursiones**. Se ha añadido la url *buscar* en el archivo [urls.py](senderos/urls.py) y el método *buscar* que atiende esa petición se ha añadido al archivo [views.py](senderos/views.py). Para acceder a esta url hay que ir a [http://localhost:8000/buscar](http://localhost:8000/buscar).
+
+Utilizando bootstrap, se ha añadido un formulario básico de búsqueda:
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/buscar1.png" width="100%" height="">
+
+Por último, para cada excursión se ha usado bootstrap para crear una tarjeta [(cards)](https://getbootstrap.com/docs/5.0/components/card/) por cada una:
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/buscar2.png" width="60%" height="">
