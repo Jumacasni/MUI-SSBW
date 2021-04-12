@@ -23,6 +23,9 @@ Desarrollo de una aplicación web inspirada en [Turgranada](https://www.turgrana
     <li>
       <a href="#tarea3">Tarea 3: Frameworks CSS</a>
     </li>
+    <li>
+      <a href="#tarea4">Tarea 4: CRUD</a>
+    </li>
   </ol>
       
 <a name="tarea0"></a>
@@ -54,9 +57,9 @@ El script creado es [populate.py](populate.py) y se ejecuta usando ```docker-com
 
 Una pequeña aplicación de consulta de la BD, siguiendo el tutorial de [Django girls](https://tutorial.djangogirls.org/es/django_start_project/) con algunas pequeñas modificaciones:
 
-* Se ha creado el modelo Excursion en el archivo [models.py](senderos/models.py) y se han añadido dos excursiones a través de [http://localhost:8000/admin](http://localhost:8000/admin):
+* No se usa la base de datos de Django, si no que usamos el serivico que hemos instalado con **MongoDB**. Se ha creado el modelo Excursion en el archivo [models.py](senderos/models.py) y se han añadido dos excursiones a través de [http://localhost:8081/db/senderos/excursion](http://localhost:8081/db/senderos/excursion):
 
-<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/admin.png" width="100%" height="">
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/admin.png" width="80%" height="">
 
 * Y se modifica el archivo [index.html](senderos/templates/senderos/index.html) para que muestre la salida a través de [http://localhost:8000](http://localhost:8000):
 
@@ -69,7 +72,7 @@ Se va a usar un **Framework CSS** para facilitar la tarea, consiguiendo también
 
 Se ha creado el archivo [base.html](senderos/templates/senderos/base.html) que contiene el código mínimo copiado desde [Starter template](https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template).
 
-Se ha modificado el archivo [index.html](senderos/templates/senderos/index.html) incluyendo el *starter template* e incluyendo una **búsqueda básica de excursiones**. Se ha añadido la url *buscar* en el archivo [urls.py](senderos/urls.py) y el método *buscar* que atiende esa petición se ha añadido al archivo [views.py](senderos/views.py). Para acceder a esta url hay que ir a [http://localhost:8000/buscar](http://localhost:8000/buscar).
+Se ha modificado el archivo [index.html](senderos/templates/senderos/index.html) incluyendo el *starter template* e incluyendo una **búsqueda básica de excursiones**. Se ha añadido la url *buscar* en el archivo [urls.py](senderos/urls.py) y el método *buscar* que atiende esa petición se ha añadido al archivo [views.py](senderos/views.py).
 
 Utilizando bootstrap, se ha añadido un formulario básico de búsqueda:
 
@@ -78,3 +81,26 @@ Utilizando bootstrap, se ha añadido un formulario básico de búsqueda:
 Por último, para cada excursión se ha usado bootstrap para crear una tarjeta [(cards)](https://getbootstrap.com/docs/5.0/components/card/) por cada una:
 
 <img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/buscar2.png" width="60%" height="">
+
+<a name="tarea4"></a>
+## Tarea 4: CRUD
+
+Se va a proporcionar una vista de detalle para cada excursión, permitiendo **añadir**, **borrar** y **editar** registros.
+
+En el archivo [forms.py](senderos/forms.py) se ha añadido una clase que contiene el formulario para añadir o editar una excursión. En el archivo [index.html](senderos/templates/senderos/index.html) se ha añadido una ventana modal para crear el formulario. La funcionalidad de este formulario se encuentra en [views.py](senderos/views.py).
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/aniadir.png" width="100%" height="">
+
+A continuación, se ha añadido funcionalidad al botón de **Info** de cada excursión. Se ha añadido a [urls.py](senderos/urls.py) la url que captura las url del tipo *localhost:8000/info/<id>*, donde *id* es el identificador de la excursión en la base de datos.
+
+Para la vista de cada excursión se ha creado el archivo [info.html](senderos/templates/senderos/info.html), que contiene el nombre y descripción de la excursión, las fotos, los comentarios, y dos botones para editar y borrar la excursión.
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/vista_detalle.png" width="100%" height="">
+
+La funcionalidad del botón **editar** muestra una ventana modal con el mismo formulario que para añadir una nueva excursión.
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/editar.png" width="100%" height="">
+
+La funcionalidad del botón **eliminar** muestra una ventana modal para confirmar la eliminación de la excursión.
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/borrar.png" width="100%" height="">

@@ -1,4 +1,3 @@
-# populate.py
 from mongoengine import connect, Document, EmbeddedDocument	
 from mongoengine.fields import EmbeddedDocumentField, StringField, ListField, IntField, DateTimeField
 from datetime import datetime
@@ -10,6 +9,10 @@ class Comentarios(EmbeddedDocument):
 	autor     = StringField(max_length=120, required=True)
 	fecha     = DateTimeField(default=datetime.now())
 
+class Fotos(EmbeddedDocument):
+	pie = StringField(required=False, max_length=120)
+	file = StringField(required=False)
+
 class Excursion(Document):
 	nombre      = StringField(max_length=120, required=True)
 	descripcion = StringField(required=True)
@@ -18,7 +21,7 @@ class Excursion(Document):
 	tags        = ListField(StringField(max_length=20))
 	duracion    = IntField(default=0)
 	comentarios = ListField(EmbeddedDocumentField(Comentarios))
-	fotos	  = ListField()
+	fotos	      = ListField(EmbeddedDocumentField(Fotos))
 
 comentarios = [
 	{
