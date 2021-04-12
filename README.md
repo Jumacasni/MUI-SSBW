@@ -80,7 +80,6 @@ Utilizando bootstrap, se ha añadido un formulario básico de búsqueda:
 
 Por último, para cada excursión se ha usado bootstrap para crear una tarjeta [(cards)](https://getbootstrap.com/docs/5.0/components/card/) por cada una:
 
-<<<<<<< HEAD
 <img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/buscar2.png" width="60%" height="">
 
 <a name="tarea4"></a>
@@ -92,7 +91,7 @@ En el archivo [forms.py](senderos/forms.py) se ha añadido una clase que contien
 
 <img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/aniadir.png" width="100%" height="">
 
-A continuación, se ha añadido funcionalidad al botón de **Info** de cada excursión. Se ha añadido a [urls.py](senderos/urls.py) la url que captura las url del tipo *localhost:8000/info/<id>*, donde *id* es el identificador de la excursión en la base de datos.
+A continuación, se ha añadido funcionalidad al botón de **Info** de cada excursión. Se ha añadido a [urls.py](senderos/urls.py) la url que captura las url del tipo *localhost:8000/info/id*, donde *id* es el identificador de la excursión en la base de datos.
 
 Para la vista de cada excursión se ha creado el archivo [info.html](senderos/templates/senderos/info.html), que contiene el nombre y descripción de la excursión, las fotos, los comentarios, y dos botones para editar y borrar la excursión.
 
