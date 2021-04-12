@@ -10,118 +10,117 @@
 		<ol class="carousel-indicators">
 			{% for f in fotos %}
 				{% if forloop.first %}
-		    	<li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
-		    {% else %}
-		    	<li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+				{% else %}
+					<li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
 				{% endif %}
 			{% endfor %}
 		</ol>
-	  <div class="carousel-inner">
-	  	{% for f in fotos %}
-	  		{% if forloop.first %}
-		    	<div class="carousel-item active">
-		  	{% else %}
-		  		<div class="carousel-item">
-		  	{% endif %}
-		      <img class="d-block w-100" style="height: 400px" src="/static/img/senderos/{{ id_excursion }}/{{ f.file }}" alt="...">
-		    {% if f.pie %}
-		      <div class="carousel-caption d-none d-md-block">
-				    <h5>{{ f.pie }}</h5>
-				  </div>
+		<div class="carousel-inner">
+			{% for f in fotos %}
+				{% if forloop.first %}
+					<div class="carousel-item active">
+				{% else %}
+					<div class="carousel-item">
 				{% endif %}
-		    </div>
-	    {% endfor %}
-	  </div>
-	  {% if n_fotos > 1 %}
-		  <a class="carousel-control-prev" style="left: 20px" href="#carouselExampleIndicators" role="button" data-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Anterior</span>
-		  </a>
-		  <a class="carousel-control-next" style="right: 20px" href="#carouselExampleIndicators" role="button" data-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Siguiente</span>
-		  </a>
+					<img class="d-block w-100" style="height: 400px" src="/static/img/senderos/{{ id_excursion }}/{{ f.file }}" alt="...">
+				{% if f.pie %}
+					<div class="carousel-caption d-none d-md-block">
+						<h5>{{ f.pie }}</h5>
+					</div>
+				{% endif %}
+					</div>
+			{% endfor %}
+		</div>
+		{% if n_fotos > 1 %}
+			<a class="carousel-control-prev" style="left: 20px" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Anterior</span>
+			</a>
+			<a class="carousel-control-next" style="right: 20px" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Siguiente</span>
+			</a>
 		{% endif %}
 
 	</div>
-  <div class="container w-75 mx-auto" style="max-width: 700px">
-	  <div class="row">
-	    <div class="col-sm-3">
+	<div class="container w-75 mx-auto" style="max-width: 700px">
+		<div class="row">
+			<div class="col-sm-3">
 				<button type="button" class="btn btn-primary btn-block mt-3 w-100"  data-toggle="modal" data-target="#editarRutaModal">Editar</button>
-	    </div>
-	    <div class="col-sm-3">
+			</div>
+			<div class="col-sm-3">
 				<button type="button" class="btn btn-danger btn-block mt-3 w-100" data-toggle="modal" data-target="#eliminarRutaModal">Eliminar</button>
-	    </div>
-	  </div>
+			</div>
+		</div>
 	</div>
 </div>
 
 <div class="container mt-5 mb-5">
-  <div class="d-flex justify-content-center row">
-    <div class="d-flex flex-column col-md-8">
-      <div class="coment-bottom bg-white p-2 px-4">
-          <!-- <div class="d-flex flex-row add-comment-section mt-4 mb-4"><input type="text" class="form-control mr-3" placeholder="Añade un comentario"><button class="btn btn-primary" type="button">Comentar</button></div> -->
-          <div class="commented-section mt-2">
-          	{% for c in comentarios %}
-             <div class="d-flex flex-row align-items-center commented-user">
-                <h5 class="mr-2" style="margin-right:10px">{{ c.autor }}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2" style="margin-left: 10px">{{ c.fecha }}</span>
-            	</div>
-            	<div class="comment-text-sm"><span>{{ c.contenido }}</span></div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="d-flex justify-content-center row">
+		<div class="d-flex flex-column col-md-8">
+			<div class="coment-bottom bg-white p-2 px-4">
+				<!-- <div class="d-flex flex-row add-comment-section mt-4 mb-4"><input type="text" class="form-control mr-3" placeholder="Añade un comentario"><button class="btn btn-primary" type="button">Comentar</button></div> -->
+				<div class="commented-section mt-2">
+					{% for c in comentarios %}
+						<div class="d-flex flex-row align-items-center commented-user">
+							<h5 class="mr-2" style="margin-right:10px">{{ c.autor }}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2" style="margin-left: 10px">{{ c.fecha }}</span>
+						</div>
+						<div class="comment-text-sm"><span>{{ c.contenido }}</span></div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- Modal editar ruta -->
 <div class="modal fade" id="editarRutaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <form action="{% url 'editar' id_excursion %}" method="post" enctype='multipart/form-data'>
-	  <div class="modal-dialog" style="top: 20%" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Editar ruta</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        {% csrf_token %}
-	        <table>
-	        	{{ form.as_table }}
-	        </table>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-	        <button type="submit" class="btn btn-primary">Editar</button>
-	      </div>
-	    </div>
-	  </div>
+	<form action="{% url 'editar' id_excursion %}" method="post" enctype='multipart/form-data'>
+		<div class="modal-dialog" style="top: 20%" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar ruta</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					{% csrf_token %}
+					<table>
+						{{ form.as_table }}
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Editar</button>
+				</div>
+			</div>
+		</div>
 	</form>
 </div>
 
 <!-- Modal eliminar ruta -->
 <div class="modal fade" id="eliminarRutaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <form action="{% url 'eliminar' id_excursion %}" method="post" enctype='multipart/form-data'>
-	  <div class="modal-dialog" style="top: 20%" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Eliminar ruta</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	      	{% csrf_token %}
-		      <p>¿Estás seguro de que quieres eliminar la ruta?</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-	        <button type="submit" class="btn btn-danger">Eliminar</button>
-	      </div>
-	    </div>
-	  </div>
+	<form action="{% url 'eliminar' id_excursion %}" method="post" enctype='multipart/form-data'>
+		<div class="modal-dialog" style="top: 20%" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Eliminar ruta</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					{% csrf_token %}
+					<p>¿Estás seguro de que quieres eliminar la ruta?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-danger">Eliminar</button>
+				</div>
+			</div>
+		</div>
 	</form>
 </div>
 {% endblock %}
