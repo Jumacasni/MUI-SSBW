@@ -19,13 +19,24 @@
     <title>Senderos</title>
   </head>
   <body>
-    <div class="container-fluid" style="margin-bottom:5vw">
-      <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid d-flex justify-content-between align-items-center" style="margin-bottom:5vw">
+      <nav class="navbar navbar-light bg-light w-100">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'index' %}">
             <img src="{% static 'img/logo.gif' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
             Senderos
           </a>
+          <div class="d-flex">
+            {% if user.is_authenticated %}
+              <div class="d-flex align-items-center">
+                <p class="mb-0">¡Hola {{ user.username }}!</p>
+                <a class="btn btn-outline-danger ms-3" href="{% url 'account_logout' %}">Cerrar sesión</a>
+              </div>
+            {% else %}
+              <a class="btn btn-primary me-2" href="{% url 'account_login' %}">Iniciar sesión</a>
+              <a class="btn btn-secondary me-2" href="{% url 'registrar' %}">Registrarse</a>
+            {% endif %}
+          </div>
         </div>
       </nav>
     </div>

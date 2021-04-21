@@ -17,20 +17,24 @@
 			{% endfor %}
 		</ol>
 		<div class="carousel-inner">
-			{% for f in fotos %}
-				{% if forloop.first %}
-					<div class="carousel-item active">
-				{% else %}
-					<div class="carousel-item">
-				{% endif %}
-					<img class="d-block w-100" style="height: 400px" src="/static/img/senderos/{{ id_excursion }}/{{ f.file }}" alt="...">
-				{% if f.pie %}
-					<div class="carousel-caption d-none d-md-block">
-						<h5>{{ f.pie }}</h5>
-					</div>
-				{% endif %}
-					</div>
-			{% endfor %}
+			{% if fotos %}
+				{% for f in fotos %}
+					{% if forloop.first %}
+						<div class="carousel-item active">
+					{% else %}
+						<div class="carousel-item">
+					{% endif %}
+						<img class="d-block w-100" style="height: 400px" src="/static/img/senderos/{{ id_excursion }}/{{ f.file }}" alt="...">
+					{% if f.pie %}
+						<div class="carousel-caption d-none d-md-block">
+							<h5>{{ f.pie }}</h5>
+						</div>
+					{% endif %}
+						</div>
+				{% endfor %}
+			{% else %}
+				<img class="d-block w-100" style="height: 400px" src="/static/img/senderos/no_image_available.jpeg" alt="...">
+			{% endif %}
 		</div>
 		{% if n_fotos > 1 %}
 			<a class="carousel-control-prev" style="left: 20px" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -44,15 +48,19 @@
 		{% endif %}
 
 	</div>
-	<div class="container w-75 mx-auto" style="max-width: 700px">
-		<div class="row">
-			<div class="col-sm-3">
-				<button type="button" class="btn btn-primary btn-block mt-3 w-100"  data-toggle="modal" data-target="#editarRutaModal">Editar</button>
-			</div>
-			<div class="col-sm-3">
-				<button type="button" class="btn btn-danger btn-block mt-3 w-100" data-toggle="modal" data-target="#eliminarRutaModal">Eliminar</button>
-			</div>
-		</div>
+	{% if user.is_authenticated %}
+		{% if user.is_staff %}
+			<div class="container w-75 mx-auto" style="max-width: 700px">
+				<div class="row">
+					<div class="col-sm-3">
+						<button type="button" class="btn btn-primary btn-block mt-3 w-100"  data-toggle="modal" data-target="#editarRutaModal">Editar</button>
+					</div>
+					<div class="col-sm-3">
+						<button type="button" class="btn btn-danger btn-block mt-3 w-100" data-toggle="modal" data-target="#eliminarRutaModal">Eliminar</button>
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
 	</div>
 </div>
 
