@@ -1,14 +1,14 @@
-from django.shortcuts import render, redirect
-from mongoengine.queryset.visitor import Q
-from .models import Excursion, Fotos, ExcursionSerializer
-from .forms import ExcursionForm, RegisterForm
-from django.contrib import messages
-from django.conf import settings
+import logging
 import os
 import shutil
+from .models import Excursion, Fotos, ExcursionSerializer
+from .forms import ExcursionForm, RegisterForm
+from django.shortcuts import render, redirect
+from mongoengine.queryset.visitor import Q
+from django.contrib import messages
+from django.conf import settings
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.signals import user_logged_out
-import logging
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import Http404
@@ -119,6 +119,7 @@ def info(request, id):
 
 	context={
 		'id_excursion': Excursion.objects(id=id)[0].id,
+		'likes': Excursion.objects(id=id)[0].likes,
 		'nombre': Excursion.objects(id=id)[0].nombre,
 		'descripcion': Excursion.objects(id=id)[0].descripcion,
 		'fotos': Excursion.objects(id=id)[0].fotos,
@@ -165,9 +166,30 @@ def registrar(request):
 
 	return render(request, "registration/register.html", {"form":form})
 
+def cambiarLikes(request, id):
+
+	if request.is_ajax and request.method == "GET":
+		subir = request.GET.dict()["subir"]
+		
+		e = Excursion.objects.get(id=id)
+
+		likes = e.likes
+
+		if subir == "true":
+			e.likes = likes+1
+
+		else:
+			e.likes = likes-1
+
+		e.save()
+
+	logger.info('Likes cambiados')
+
+	return redirect("index")
+
 class ExcursionesView(APIView):
 
-	permission_classes = (IsAuthenticated,)
+	# permission_classes = (IsAuthenticated,)
 
 	def get(self, request):
 		excursiones = Excursion.objects.all()[:4]

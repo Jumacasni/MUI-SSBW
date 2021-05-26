@@ -57,8 +57,3 @@ class ExcursionSerializer(serializers.Serializer):
 			
 		excursion.save()
 		return excursion
- 
-# class ExcursionSerializer(serializers.DocumentSerializer):
-# 	class Meta:
-# 		model: 'Excursion'
-# 		fields: ['nombre', 'descripcion']

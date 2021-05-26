@@ -10,5 +10,6 @@ urlpatterns = [
     path('eliminar/<str:id>', views.eliminar, name="eliminar"),
     path('registrar', views.registrar, name="registrar"),
     path('api/excursion/<id>', views.ExcursionView.as_view(), name="excursion"),
-    path('api/excursiones', views.ExcursionesView.as_view(), name="excursiones")
+    path('api/excursiones', views.ExcursionesView.as_view(), name="excursiones"),
+    path('likes/<id>', views.cambiarLikes, name="cambiarLikes")
 ]

@@ -71,3 +71,17 @@
 .carousel-inner img{
   object-fit: cover;
 }
+
+/* COLORS */
+
+.text-white{
+  color: white;
+}
+
+.text-black{
+  color: black;
+}
+
+.bg-white-light{
+  background-color: white;
+}

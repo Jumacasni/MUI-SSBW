@@ -17,7 +17,7 @@ Se ha buscado {{ buscado }}
 
 <div class="d-flex flex-wrap mt-5">
 {% for e in excursiones %}
-		<div class="card me-2 mb-5" style="width: 18rem;">
+		<div class="card bg-white-light me-2 mb-5" style="width: 18rem;">
 			{% if e.fotos.0.file %}
 				<img src="/static/img/senderos/{{ e.id }}/{{ e.fotos.0.file }}" class="card-img-top">
 			{% else %}
@@ -44,7 +44,7 @@ Se ha buscado {{ buscado }}
 <div class="modal fade" id="aniadirRutaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<form action="{% url 'aniadir' %}" method="post" enctype='multipart/form-data'>
 		<div class="modal-dialog" style="top: 20%" role="document">
-			<div class="modal-content">
+			<div class="modal-content bg-white-light">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Añadir ruta</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
