@@ -192,7 +192,7 @@ class ExcursionesView(APIView):
 	# permission_classes = (IsAuthenticated,)
 
 	def get(self, request):
-		excursiones = Excursion.objects.all()[:4]
+		excursiones = Excursion.objects.all()
 		serializer = ExcursionSerializer(excursiones, many=True)
 		return Response(serializer.data)
 
@@ -208,8 +208,8 @@ class ExcursionView(APIView):
 
 	def get(self, request, id):
 		try:
-			e = Excursion.objects.get(id=id)
-			serializer = ExcursionSerializer(e)
+			excursion = Excursion.objects.get(id=id)
+			serializer = ExcursionSerializer(excursion)
 			return Response(serializer.data)
 		except:
 			raise Http404
@@ -226,7 +226,10 @@ class ExcursionView(APIView):
 	def put(self, request, id):
 		try:
 			e = Excursion.objects.get(id=id)
+			print("antes del serializer")
+			print(request.data.get('nombre'))
 			serializer = ExcursionSerializer(e, data=request.data)
+			print("despues del serializer")
 			if serializer.is_valid():
 				serializer.save()
 				return Response(serializer.data)
