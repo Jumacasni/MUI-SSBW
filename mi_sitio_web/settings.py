@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
 
-
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-secondary',
     messages.INFO: 'alert-info',
@@ -33,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ldm8w=y+0(--=29=p5!s*4@g#k&5g4m0fw_7=$qhk-*u%1o7hx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -61,9 +60,11 @@ INSTALLED_APPS = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'http://localhost:5000',
 ]
 CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:3000',
+    'http://localhost:5000',
 ]
 
 MIDDLEWARE = [
