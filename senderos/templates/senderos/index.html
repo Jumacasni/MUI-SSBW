@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
-
+{%load i18n %}
 {% block contenido %}
 
 <div class="mb-3">
 	<form method="post" action="{% url 'buscar' %}">{% csrf_token %}
-		<label for="exampleFormControlInput1" class="form-label">Buscar excursión</label>
+		<label for="exampleFormControlInput1" class="form-label">{% translate 'Buscar excursión' %}</label>
 		<input name="busqueda" type="text" class="form-control" id="exampleFormControlInput" placeholder="...">
 	</form>
 </div>
 
 {% if buscado %}
 
-Se ha buscado {{ buscado }}
+{% translate 'Se ha buscado' %} {{ buscado }}
 
 {% endif %}
 
@@ -35,7 +35,7 @@ Se ha buscado {{ buscado }}
 {% if user.is_authenticated %}
 	{% if user.is_staff %}
 		<div class="d-flex justify-content-end">
-			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#aniadirRutaModal">Añadir ruta</button>
+			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#aniadirRutaModal">{% translate 'Añadir ruta' %}</button>
 		</div>
 	{% endif %}
 {% endif %}
@@ -46,7 +46,7 @@ Se ha buscado {{ buscado }}
 		<div class="modal-dialog" style="top: 20%" role="document">
 			<div class="modal-content bg-white-light">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Añadir ruta</h5>
+					<h5 class="modal-title" id="exampleModalLabel">{% translate 'Añadir ruta' %}</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -58,8 +58,8 @@ Se ha buscado {{ buscado }}
 					</table>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="submit" class="btn btn-primary">Añadir</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">{% translate 'Cerrar' %}</button>
+					<button type="submit" class="btn btn-primary">{% translate 'Añadir' %}</button>
 				</div>
 			</div>
 		</div>

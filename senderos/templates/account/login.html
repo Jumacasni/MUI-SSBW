@@ -8,11 +8,11 @@
 
 <div class="row justify-content-center">
 	<div class="col-6">
-		<h2>Inicio de sesión</h2>
+		<h2>{% translate 'Inicio de sesión' %}</h2>
 		<form method="post">
 		  {% csrf_token %}
 		  {{ form | crispy }}
-		  <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+		  <button class="btn btn-primary" type="submit">{% translate 'Iniciar sesión' %}</button>
 		</form>
 	</div>
 </div>

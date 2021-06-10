@@ -1,3 +1,4 @@
+{%load i18n %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -17,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <title>Senderos</title>
+    <title>{% translate 'Senderos' %}</title>
 
     <script>
 
@@ -50,22 +51,22 @@
         <div class="container-fluid">
           <a class="navbar-brand text-black" href="{% url 'index' %}">
             <img src="{% static 'img/logo.gif' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            Senderos
+            {% translate 'Senderos' %}
           </a>
           <div class="d-flex align-items-center">
             <div class="form-check form-switch me-2">
               <input class="form-check-input" type="checkbox" id="darkSwitch">
-              <label class="form-check-label" for="darkSwitch">Modo noche</label>
+              <label class="form-check-label" for="darkSwitch">{% translate 'Modo noche' %}</label>
             </div>
             <script src="/static/js/dark-mode-switch.min.js"></script>
             {% if user.is_authenticated %}
               <div class="d-flex align-items-center">
-                <p class="mb-0">¡Hola {{ user.username }}!</p>
-                <a class="btn btn-outline-danger ms-3" href="{% url 'account_logout' %}">Cerrar sesión</a>
+                <p class="mb-0">{% translate '¡Hola' %} {{ user.username }}!</p>
+                <a class="btn btn-outline-danger ms-3" href="{% url 'account_logout' %}">{% translate 'Cerrar sesión' %}</a>
               </div>
             {% else %}
-              <a class="btn btn-primary me-2" href="{% url 'account_login' %}">Iniciar sesión</a>
-              <a class="btn btn-secondary me-2" href="{% url 'registrar' %}">Registrarse</a>
+              <a class="btn btn-primary me-2" href="{% url 'account_login' %}">{% translate 'Iniciar sesión' %}</a>
+              <a class="btn btn-secondary me-2" href="{% url 'registrar' %}">{% translate 'Registrarse' %}</a>
             {% endif %}
           </div>
         </div>

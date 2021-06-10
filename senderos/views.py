@@ -14,6 +14,7 @@ from rest_framework.response import Response
 from django.http import Http404
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from django.utils.translation import ugettext as _
 
 logger = logging.getLogger(__name__)
 
