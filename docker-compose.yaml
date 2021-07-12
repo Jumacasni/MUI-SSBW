@@ -16,7 +16,7 @@ services:
     command: gunicorn mi_sitio_web.wsgi:application --bind 0.0.0.0:8000
     # command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./web:/web
+      - .:/code
     ports:
       - "8000:8000"
     depends_on:
