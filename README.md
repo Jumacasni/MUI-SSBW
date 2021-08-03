@@ -26,6 +26,21 @@ Desarrollo de una aplicación web inspirada en [Turgranada](https://www.turgrana
     <li>
       <a href="#tarea4">Tarea 4: CRUD</a>
     </li>
+    <li>
+      <a href="#tarea5">Tarea 5: Autentificación, autorización y registro de eventos</a>
+    </li>
+    <li>
+      <a href="#tarea6">Tarea 6: REST API</a>
+    </li>
+    <li>
+      <a href="#tarea7">Tarea 7: jQuery, AJAX</a>
+    </li>
+    <li>
+      <a href="#tarea8">Tarea 8: React</a>
+    </li>
+    <li>
+      <a href="#tarea9">Tarea 9: Despliegue en producción</a>
+    </li>
   </ol>
       
 <a name="tarea0"></a>
