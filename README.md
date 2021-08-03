@@ -104,3 +104,74 @@ La funcionalidad del botón **editar** muestra una ventana modal con el mismo fo
 La funcionalidad del botón **eliminar** muestra una ventana modal para confirmar la eliminación de la excursión.
 
 <img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/borrar.png" width="100%" height="">
+
+<a name="tarea5"></a>
+## Tarea 5: Autentificación, autorización y registro de eventos
+
+Se añade autentificación, autorización de los usuarios sobre la BD y un registro de eventos en la aplicación:
+
+* Se ha utilizado el plugin **django-allauth**, cuyo tutorial puede encontrarse [aquí](https://learndjango.com/tutorials/django-allauth-tutorial)
+* Para el registro de eventos se ha utilizado el [logger](https://docs.djangoproject.com/en/3.1/topics/logging/) y las [signals](https://docs.djangoproject.com/en/3.1/topics/signals/)
+
+En esta tarea se debe:
+* Añadir un enlace en el menú para hacer un login o registro
+* En el caso de que el usuario esté autentificado, deberá aparecer el nombre de usuario y un enlace para el logout
+* Limitar la modificación de la BD a los administradores
+
+En la siguiente imagen se pueden ver los botones de login y registro, cuyas plantillas se han obtenido de bootstrap.
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/login-registro.png" width="100%" height="">
+
+En las dos siguientes imágenes se puede apreciar que sólo el usuario con privilegios de administrador puede añadir rutas (además de editarlas, eliminarlas y modificarlas).
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/usuario-con-privilegios.png" width="100%" height="">
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/usuario-sin-privilegios.png" width="100%" height="">
+
+<a name="tarea6"></a>
+## Tarea 6: REST API
+Se proporciona una API RESTFUL usando la extensión [Django REST framework](https://www.django-rest-framework.org/) usando **serializers**. Se habilitan los siguientes endpoints:
+
+* **/api/excursiones**: **GET** con la lista de todas las excursiones
+* **/api/excursiones**: **POST** para añadir una excursión
+* **/api/excursion/<id>**: **GET** con la información de una excursión
+* **/api/excursion/<id>**: **PUT** para modificar una excursión
+* **/api/excursion/<id>**: **DELETE** para borrar una excursión
+
+Vista de la api de excursiones:
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/api-excursiones.png" width="100%" height="">
+
+Vista de la api de una excursión:
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/api-excursion-id.png" width="100%" height="">
+
+<a name="tarea7"></a>
+## Tarea 7: jQuery, AJAX
+
+Se va a mejorar la experiencia de usuario añadiendo código **jQuery** a la aplicación:
+
+* Se añaden dos botones (pulgares hacia arriba y abajo) para darle *like* a las excursiones. Este contador de *likes* va conectado con la base de datos.
+* Se añade un botón **modo noche** para cambiar el CSS a colores oscuros.
+
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/modo-noche.png" width="100%" height="">
+
+<a name="tarea8"></a>
+## Tarea 8: React
+
+Se proporciona un frontend en React. Para ello, se ha seguido [este tutorial](https://www.youtube.com/watch?v=Ke90Tje7VS0). Se debe instalar **django-cors-header** para usarlo durante la fase de desarrollo, permitiendo que se hagan requerimientos al servidor desde una URL distinta a la propia del servidor.
+
+Se ha implementado una búsqueda de excursiones que va filtrando las excursiones a medida que el usuario va insertando caracteres en el formulario de búsqueda:
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/formulario-react.png" width="100%" height="">
+
+También se ha implementado una vista básica de la información de una excursion:
+<img src="https://github.com/Jumacasni/MUII-SSBW/blob/main/img/excursion-react.png" width="100%" height="">
+
+<a name="tarea9"></a>
+## Tarea 9: Despliegue en producción
+
+La última tarea consiste en desplegar la aplicación en producción, es decir, funcionando con la **depuración en OFF** y conectada a un servidor **nginx** en el puerto 80.
+
+Se han implementado los siguientes cambios:
+
+* Se añade el servidor **nginx** al [docker-compose.yaml](docker-compose.yaml) y se cambia el servidor de desarrollo (runserver) por el de producción (guicorn)
+* Se añade la configuración del servidor **nginx** al archivo [nginx.conf](nginx.conf)
+* Se cambia la configuración de producción en [settings.py](mi_sitio_web/settings.py)
+
+A partir de este momento se puede acceder al servidor a través del puerto 80.

@@ -1,26 +1,35 @@
-[24/Jun/2021 23:11:39] INFO [senderos.views:32] Página principal
-[24/Jun/2021 23:11:46] INFO [senderos.views:132] Vista de una ruta
-[24/Jun/2021 23:12:10] ERROR [django.request:230] Internal Server Error: /info/60d4f4687aeefa4fec2a1390
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/code/senderos/views.py", line 122, in info
-    'id_excursion': Excursion.objects(id=id)[0].id,
-  File "/usr/local/lib/python3.7/site-packages/mongoengine/queryset/base.py", line 202, in __getitem__
-    queryset._cursor[key],
-  File "/usr/local/lib/python3.7/site-packages/pymongo/cursor.py", line 649, in __getitem__
-    raise IndexError("no such item for Cursor instance")
-IndexError: no such item for Cursor instance
-[24/Jun/2021 23:12:17] INFO [senderos.views:32] Página principal
-[24/Jun/2021 23:12:48] INFO [senderos.views:32] Página principal
-[24/Jun/2021 23:12:56] INFO [senderos.views:132] Vista de una ruta
-[24/Jun/2021 23:12:59] INFO [senderos.views:144] Eliminación de una ruta
-[24/Jun/2021 23:12:59] INFO [senderos.views:32] Página principal
-[24/Jun/2021 23:13:11] INFO [senderos.views:112] Imágenes de ruta subidas correctamente
-[24/Jun/2021 23:13:11] INFO [senderos.views:86] Ruta añadida correctamente
-[24/Jun/2021 23:13:11] INFO [senderos.views:32] Página principal
-[24/Jun/2021 23:13:29] INFO [senderos.views:132] Vista de una ruta
-[24/Jun/2021 23:13:31] INFO [senderos.views:32] Página principal
-[24/Jun/2021 23:13:39] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:23:28] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:23:28] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:26:27] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:26:57] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:27:19] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:28:55] ERROR [senderos.views:165] Error en el POST de registrar usuario
+NoneType: None
+[03/Aug/2021 11:29:02] ERROR [senderos.views:165] Error en el POST de registrar usuario
+NoneType: None
+[03/Aug/2021 11:29:05] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:29:26] INFO [senderos.views:132] Vista de una ruta
+[03/Aug/2021 11:29:30] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:29:35] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:29:38] INFO [senderos.views:132] Vista de una ruta
+[03/Aug/2021 11:29:41] INFO [senderos.views:144] Eliminación de una ruta
+[03/Aug/2021 11:29:41] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:30:08] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:30:14] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:30:35] INFO [senderos.views:32] Página principal
+[03/Aug/2021 11:30:38] INFO [senderos.views:32] Página principal
+[03/Aug/2021 13:28:39] INFO [senderos.views:32] Página principal
+[03/Aug/2021 13:28:41] INFO [senderos.views:132] Vista de una ruta
+[03/Aug/2021 13:28:46] INFO [senderos.views:32] Página principal
+[03/Aug/2021 13:28:47] INFO [senderos.views:132] Vista de una ruta
+[03/Aug/2021 13:28:52] INFO [senderos.views:187] Likes cambiados
+[03/Aug/2021 13:28:52] INFO [senderos.views:32] Página principal
+[03/Aug/2021 13:28:53] INFO [senderos.views:132] Vista de una ruta
+[03/Aug/2021 13:28:53] INFO [senderos.views:187] Likes cambiados
+[03/Aug/2021 13:28:53] INFO [senderos.views:32] Página principal
+[03/Aug/2021 13:28:53] INFO [senderos.views:132] Vista de una ruta
+[03/Aug/2021 13:28:55] INFO [senderos.views:187] Likes cambiados
+[03/Aug/2021 13:28:55] INFO [senderos.views:32] Página principal
+[03/Aug/2021 13:28:55] INFO [senderos.views:132] Vista de una ruta
+[03/Aug/2021 13:29:09] INFO [senderos.views:32] Página principal
+[03/Aug/2021 13:29:12] INFO [senderos.views:132] Vista de una ruta
